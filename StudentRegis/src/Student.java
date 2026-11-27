@@ -14,7 +14,7 @@ public class Student {
         if (!Float.isFinite(grade) || grade > 100.0f || grade < 0.0f){
             throw new IllegalArgumentException("Grade must be between 0 and 100.");
         }
-        this.name = name;
+        this.name = name.trim();
         this.age = age;
         this.grade = grade;
     }

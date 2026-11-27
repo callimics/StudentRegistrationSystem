@@ -42,7 +42,7 @@ public class RevisedRegistration {
         registerStudent("Rorie", 21, 99);       //Accepts
         registerStudent("AJ", 21, 95);          //Accepts
         registerStudent("Julius", 21, 87);      //Accepts
-        registerStudent("Julius", 21, 67);      //Reject
+        registerStudent("Julius ", 21, 67);      //Reject
         registerStudent("James", 50, -4);             //Reject
 
         displayStudents();
