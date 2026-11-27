@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentRegistration {
+public class OldStudentRegistration {
 
     static List<String> students = new ArrayList<>();
 

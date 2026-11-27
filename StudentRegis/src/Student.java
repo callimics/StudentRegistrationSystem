@@ -11,7 +11,7 @@ public class Student {
         if (age <= 0){
             throw new IllegalArgumentException("Age must be a valid number.");
         }
-        if (grade < 0 || grade > 100){
+        if (!Float.isFinite(grade) || grade > 100.0f || grade < 0.0f){
             throw new IllegalArgumentException("Grade must be between 0 and 100.");
         }
         this.name = name;
@@ -29,6 +29,11 @@ public class Student {
 
     public float getGrade(){ //getter for grade
         return grade;
+    }
+
+    @Override               //Used to properly print out the data
+    public String toString(){
+        return "Name: " + name + " | Age: " + age + " | Grade: " + grade;
     }
     
 }

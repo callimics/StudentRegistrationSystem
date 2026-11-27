@@ -4,49 +4,47 @@ import java.util.List;
 public class RevisedRegistration {
     private static final List<Student> students = new ArrayList<>(); //Use List for flexibility and maintainability
 
-    public static void addStudent(String name, int age, float grade){
-        
-        if (name == null || name.isBlank()){ //input checks for each variable
-            System.out.println("\nInvalid Name.");
-            return;
+    public static void addStudent(Student student){                 //Refactored to only handle adding students
+        if(student == null){
+            throw new IllegalArgumentException("Student cannot be null.");
         }
 
-        if (age <= 0){ //input checks for each variable
-            System.out.println("\nInvalid Age for " + name + ": " + age);
-            return;
-        }
-
-        if (grade < 0 || grade > 100){ //input checks for each variable
-            System.out.println("\nInvalid Grade for " + name + ": " + grade);
-            return;
-        }
-
-        for (Student s : students){ //checks for duplicate entries
-            if(s.getName().equalsIgnoreCase(name)){
-                System.out.println("\nStudent already exists: " + name);
-                return;
+        for (Student exists : students){ //checks for duplicate entries
+            if(exists.getName().equalsIgnoreCase(student.getName())){
+                throw new IllegalArgumentException("Student already exists: " + student.getName());
             }
         }
 
-        Student student = new Student(name, age, grade); //once all checks are validated, add student to List
         students.add(student);
-        System.out.println("Student Registered!"); //confirmation message once added
         
     }
 
-    public static void display(){ //revised student display method, uses getter for better data handling
+    public static void registerStudent(String name, int age, float grade){      //Created new method for verification
+        try{
+            Student student = new Student(name, age, grade);
+            addStudent(student);
+            System.out.println("\nStudent Registered!");
+        }
+        catch (IllegalArgumentException e){
+            System.out.println("\nRegistration failed: " + e.getMessage());
+        }
+    }
+
+    public static void displayStudents(){ //revised student display method, uses getter for better data handling
         System.out.println("\nRegistered Students:");
         for (Student s: students){
-            System.out.println(s.getName());
+            System.out.println(s);
         }
     }
 
     public static void main(String[] args){
-        addStudent("Julius", 25, 80);    //Accepts
-        addStudent("AJ", 21, 95);        //Accepts
-        addStudent("Rorie", 21, 99);     //Accepts
-        addStudent("Julius", -9000, -4);            //Reject
 
-        display();
+        registerStudent("Rorie", 21, 99);       //Accepts
+        registerStudent("AJ", 21, 95);          //Accepts
+        registerStudent("Julius", 21, 87);      //Accepts
+        registerStudent("Julius", 21, 67);      //Reject
+        registerStudent("James", 50, -4);             //Reject
+
+        displayStudents();
     }
 }
