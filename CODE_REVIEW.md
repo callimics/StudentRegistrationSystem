@@ -1,3 +1,5 @@
+-- FIRST REVIEW --
+
 RESOLVED CONCERS
 1. Naming conventions are specified (i.e. n to name), as well as methods are renamed
 2. Logical errors are applied, such that invalid entries are rejected
@@ -10,3 +12,15 @@ NEEDS IMPROVEMENT
 
 NOT RESOLVED
 1. There is not complete details of registered students (i.e. grades, age) when printed
+
+-- SECOND REVIEW -- 
+
+RESOLVED CONCERNS 
+1. Displays student name, age, and grade
+2. Float.isFinite(grade) is added, can reject NaN and positve or negative infinite numbers
+
+NEEDS IMPROVEMENT
+1. Names can accept with spaces (Julius.nospace and Julius_space is accepted as not duplicate)
+
+SUGGESTION
+1. Adding trim for the names spaces
