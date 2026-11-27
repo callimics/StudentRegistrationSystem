@@ -1,17 +1,18 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRegistration {
 
-    static ArrayList<String> students = new ArrayList<>();
+    static List<String> students = new ArrayList<>();
 
-    public static void add(String n, int a, double g) {
+    public static void addStudent(String name, int age, double grade) {
 
-        students.add(n);
+        students.add(name);
 
         System.out.println("Student Added!");
-        System.out.println("Name: " + n);
-        System.out.println("Age: " + a);
-        System.out.println("Grade: " + g);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
     }
 
     public static void display() {
@@ -23,9 +24,9 @@ public class StudentRegistration {
 
     public static void main(String[] args) {
 
-        add("", -5, 150);
-        add("John", 20, 85);
-        add("John", 20, 85);
+        addStudent("", -5, 150);
+        addStudent("John", 20, 85);
+        addStudent("John", 20, 85);
 
         display();
     }
