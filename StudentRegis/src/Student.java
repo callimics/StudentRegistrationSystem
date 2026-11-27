@@ -1,11 +1,11 @@
 public class Student {
 
-    final String name;
-    final int age;
-    final float grade;
+    private final String name;
+    private final int age;
+    private final float grade;
 
-    public Student(String name, int age, float grade){ //Constructor for student identification and details
-        if (name == null || name.isBlank()){
+    public Student(String name, int age, float grade){          //Constructor for student identification and details
+        if (name == null || name.isBlank()){                    // validation checks before creating an instance of Student
             throw new IllegalArgumentException("Name cannot be blank.");
         }
         if (age <= 0){
@@ -19,15 +19,15 @@ public class Student {
         this.grade = grade;
     }
 
-    public String getName(){ //getters for initialized details
+    public String getName(){ //getter for name
         return name;
     }
 
-    public int getAge(){
+    public int getAge(){ //getter for age
         return age;
     }
 
-    public float getGrade(){
+    public float getGrade(){ //getter for grade
         return grade;
     }
     
